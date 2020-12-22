@@ -6,6 +6,7 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
+import Navbar from './components/Navbar';
 require("dotenv").config();
 
 
@@ -43,21 +44,24 @@ const App = () => {
 
 
   return (
+    <>
+    <Navbar />
     <div className="container-fluid movie-app">
-    <div className="row d-flex align-items-center mt-4 mb-4">
-      <MovieListHeading heading="Movies" />
+    <div className="row d-flex align-items-center mt-4 mb-4" id="movies">
+      <MovieListHeading heading="Movies"  />
       <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
     </div>
       <div className="row">
       <MovieList movies={movies} favouriteComponent={AddFavourites} handleFavouritesClick={addFavouriteMovie}/>
       </div>
-      <div className="row d-flex align-items-center mt-4 mb-4">
+      <div className="row d-flex align-items-center mt-4 mb-4" id="favourites">
       <MovieListHeading heading="Favourites" />
       </div>
       <div className="row">
       <MovieList movies={favourites} handleFavouritesClick={removeFavouriteMovie} favouriteComponent={RemoveFavourites} />
       </div>
     </div>
+    </>
   );
 }
 

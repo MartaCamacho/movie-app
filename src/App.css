@@ -1,3 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+
+:root {
+  --ff-primary: 'Source Sans Pro', sans-serif;
+	--ff-secondary: 'Bungee Outline', cursive;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,14 +14,77 @@
 /* GENERAL STYLING */
 
 body {
-  background: #141414;
+  background: #141414ee;
   color: #ffffff;
+  font-family: var(--ff-primary);
 }
 
 .movie-app > .row {
   overflow-x: auto;
   flex-wrap: nowrap;
 }
+
+/* NAVBAR STYLING */
+
+.navbar {
+  width: 100%;
+  margin: 0;
+}
+
+/* SEACH BOX STYLING */
+
+.form-control {
+  width: 50px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.form-control:FOCUS {
+  width: 100%;
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+/* MOVIE LIST STYLING */
+.header-sections {
+  font-family: var(--ff-secondary);
+}
+
+.movie-poster {
+  width: 10rem;
+  box-shadow: 
+  0.5rem 0.5rem  rgba(255, 255, 255, 0.205),
+  -0.2rem -0.2rem 0.5rem  rgba(255, 255, 255, 0.205);
+}
+
+.movie-poster-text {
+  width: 10rem;
+  box-shadow: 
+  0.5rem 0.5rem  rgba(255, 255, 255, 0.205),
+  -0.2rem -0.2rem 0.5rem  rgba(255, 255, 255, 0.205);
+  padding: 1rem;
+  height: 100%;
+  font-size: 19px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
+}
+
+@media (max-width: 600px) {
+  .row::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .row {
+    -ms-overflow-style: none;
+    scrollbar-width: none;  
+  }
+}
+
 
 /* FAVOURITES STYLYNG */
 
