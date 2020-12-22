@@ -45,11 +45,10 @@ const App = () => {
 
   return (
     <>
-    <Navbar />
+    <Navbar searchValue={searchValue} setSearchValue={setSearchValue} />
     <div className="container-fluid movie-app">
     <div className="row d-flex align-items-center mt-4 mb-4" id="movies">
       <MovieListHeading heading="Movies"  />
-      <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
     </div>
       <div className="row">
       <MovieList movies={movies} favouriteComponent={AddFavourites} handleFavouritesClick={addFavouriteMovie}/>
