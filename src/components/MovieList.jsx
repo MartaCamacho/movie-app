@@ -2,6 +2,7 @@ import React from 'react';
 
 const MovieList = (props) =>{
     const FavouriteComponent = props.favouriteComponent;
+    let set = new Set();
     return (
         <>
             {props.movies.map((movie, index) => (

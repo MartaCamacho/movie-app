@@ -31,8 +31,12 @@ const App = () => {
   }, [searchValue]);
 
   const addFavouriteMovie = (movie) => {
-      const newFavouriteList = [...favourites, movie];
-      setFavourites(newFavouriteList);
+        let movieExist = favourites.indexOf(movie)
+        console.log(movieExist)
+        const newFavouriteList = [...favourites, movie]
+        if(movieExist === -1){
+        return setFavourites(newFavouriteList)
+        }
   };
 
   const removeFavouriteMovie = (movie) => {
