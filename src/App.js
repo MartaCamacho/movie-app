@@ -3,10 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
-import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
-import Navbar from './components/Navbar';
+import Navibar from './components/Navbar';
 require("dotenv").config();
 
 
@@ -49,7 +48,7 @@ const App = () => {
 
   return (
     <>
-    <Navbar searchValue={searchValue} setSearchValue={setSearchValue} />
+    <Navibar searchValue={searchValue} setSearchValue={setSearchValue} />
     <div className="container-fluid movie-app">
     <div className="row d-flex align-items-center mt-4 mb-4" id="movies">
       <MovieListHeading heading="Movies"  />

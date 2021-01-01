@@ -26,11 +26,28 @@ body {
 
 /* NAVBAR STYLING */
 
-.navbar {
-  width: 100%;
-  margin: 0;
-  z-index: 4;
+@media (max-width: 992px) {
+  #mobile-navbar-show {
+    display: flex;
+  }
+  
+  #desktop-navbar-show {
+    display: none;
+  }
 }
+
+
+@media (min-width: 992px) {
+  #desktop-navbar-show {
+    display: flex;
+  }
+
+  #mobile-navbar-show {
+    display: none;
+  }
+}
+
+
 
 /* SEACH BOX STYLING */
 

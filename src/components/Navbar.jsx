@@ -1,31 +1,35 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Nav } from 'react-bootstrap';
 
-const Navbar = (props) => {
+const Navibar = (props) => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li className="nav-item">
-                    <a className="nav-link" href="#movies">Movies</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#favourites">Favourites</a>
-                </li>
-                </ul>
-                <div className="col col-sm-4 search-container">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Toggle aria-controls="responsive-navbar-nav " />
+                <div className="col col-sm-4 search-container " id="mobile-navbar-show">
                     <input className="form-control" value={props.value} 
                     onChange={(event) => props.setSearchValue(event.target.value)} 
                     placeholder="🔍 Search here your movie ...">
                     </input>
                 </div>
-            </div>
-            </nav>
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav>
+                    <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li className="nav-item"> <Nav.Link href="#movies">Movies</Nav.Link> </li>
+                    <li className="nav-item"> <Nav.Link href="#favourites">favourites</Nav.Link> </li>
+                    </ul>
+                    </Nav>
+                </Navbar.Collapse>
+                <div className="col col-sm-4 search-container " id="desktop-navbar-show">
+                    <input className="form-control" value={props.value} 
+                    onChange={(event) => props.setSearchValue(event.target.value)} 
+                    placeholder="🔍 Search here your movie ...">
+                    </input>
+                </div>
+            </Navbar>
         </>
     )
 }
 
-export default Navbar;
+export default Navibar;
