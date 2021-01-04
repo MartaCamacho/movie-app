@@ -9,7 +9,7 @@ import MovieListHeading from './components/MovieListHeading';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 import Navibar from './components/Navbar';
-require("dotenv").config();
+require('dotenv').config();
 
 
 
@@ -19,7 +19,7 @@ const App = () => {
   const [favourites, setFavourites] = useState ([]);
 
   const getMovieRequest = async (searchValue) => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=a55ab46b` /*process.env.API_KEY*/;
+    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=a55ab46b`;
     const response = await fetch(url);
     const responseJson = await response.json();
     if (responseJson.Search) {

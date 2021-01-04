@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const MovieList = (props) =>{
     const FavouriteComponent = props.favouriteComponent;
@@ -11,8 +11,8 @@ const MovieList = (props) =>{
     return (
             <>
             {props.movies.map((movie, index) => (
-                <div>
-                    <div className="image-container d-flex justify-content-start m-3" key={index}> 
+                <div key={index}>
+                    <div className="image-container d-flex justify-content-start m-3" > 
                         {movie.Poster !== "N/A" ? <img className="movie-poster" src={movie.Poster} alt={movie.Title}></img> : <p className="movie-poster-text">{movie.Title}</p>}
                         <div onClick={() => props.handleFavouritesClick(movie)} className="overlay d-flex align-items-center justify-content-center">
                             <FavouriteComponent />
