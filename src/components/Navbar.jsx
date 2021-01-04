@@ -16,7 +16,7 @@ const Navibar = (props) => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav>
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li className="nav-item"> <Nav.Link href="/">📽️</Nav.Link> </li>
+                    <li className="nav-item active"> <Nav.Link href="/">📽️</Nav.Link> </li>
                     <li className="nav-item"> <Nav.Link href="#movies">Movies</Nav.Link> </li>
                     <li className="nav-item"> <Nav.Link href="#favourites">Favourites</Nav.Link> </li>
                     <li className="nav-item"> <Nav.Link href="#details">Details</Nav.Link> </li>
