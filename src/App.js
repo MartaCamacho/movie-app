@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
+import Footer from './components/Footer';
 import MovieDetails from './components/MovieDetails';
 import MovieListHeading from './components/MovieListHeading';
 import AddFavourites from './components/AddFavourites';
@@ -50,6 +51,12 @@ const App = () => {
   return (
     <div>
     <Navibar searchValue={searchValue} setSearchValue={setSearchValue} />
+    <section className="introduction">
+    <div className="introduction-text">
+    <h1>Movie finder, <br /> your movie app</h1>
+    <h2>Search you movies, save them and see their information, all in one page!</h2>
+    </div>
+    </section>
     <div className="container-fluid movie-app">
     <div className="row d-flex align-items-center mt-4 mb-4" id="movies">
       <MovieListHeading heading="Movies"/>
@@ -67,6 +74,7 @@ const App = () => {
     <Switch>
     <Route exact path='/:imdbId' component={MovieDetails} />
     </Switch>
+    <Footer />
     </div>
   );
 }
