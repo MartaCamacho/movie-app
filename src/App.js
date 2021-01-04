@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import {Switch, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
+import MovieDetails from './components/MovieDetails';
 import MovieListHeading from './components/MovieListHeading';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
@@ -19,7 +21,6 @@ const App = () => {
     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=a55ab46b` /*process.env.API_KEY*/;
     const response = await fetch(url);
     const responseJson = await response.json();
-
     if (responseJson.Search) {
       setMovies(responseJson.Search);
     }
@@ -31,7 +32,6 @@ const App = () => {
 
   const addFavouriteMovie = (movie) => {
         let movieExist = favourites.indexOf(movie)
-        console.log(movieExist)
         const newFavouriteList = [...favourites, movie]
         if(movieExist === -1){
         return setFavourites(newFavouriteList)
@@ -46,24 +46,28 @@ const App = () => {
   }
 
 
+
   return (
-    <>
+    <div>
     <Navibar searchValue={searchValue} setSearchValue={setSearchValue} />
     <div className="container-fluid movie-app">
     <div className="row d-flex align-items-center mt-4 mb-4" id="movies">
-      <MovieListHeading heading="Movies"  />
+      <MovieListHeading heading="Movies"/>
     </div>
-      <div className="row">
+      <div className="row row-overflow movielist-align">
       <MovieList movies={movies} favouriteComponent={AddFavourites} handleFavouritesClick={addFavouriteMovie}/>
       </div>
       <div className="row d-flex align-items-center mt-4 mb-4" id="favourites">
       <MovieListHeading heading="Favourites" />
       </div>
-      <div className="row">
+      <div className="row row-overflow movielist-align">
       <MovieList movies={favourites} handleFavouritesClick={removeFavouriteMovie} favouriteComponent={RemoveFavourites} />
       </div>
     </div>
-    </>
+    <Switch>
+    <Route exact path='/:imdbId' component={MovieDetails} />
+    </Switch>
+    </div>
   );
 }
 

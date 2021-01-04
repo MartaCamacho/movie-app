@@ -1,9 +1,19 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
 
 :root {
   --ff-primary: 'Source Sans Pro', sans-serif;
-	--ff-secondary: 'Bungee Outline', cursive;
+  --ff-secondary: 'Bungee Outline', cursive;
+
+  --clr-light: #e9eaec;
+  --clr-med: #90adc6;
+  --clr-dark: #333652;
+  --clr-accent: #fad02c;
+
+  --bs-dark: 0.5rem 0.5rem rgba(255, 255, 255, 0.205),
+    -0.2rem -0.2rem 0.5rem rgba(255, 255, 255, 0.205);
+
+  --bs: 0.5rem 0.5rem #e9eaec,
+    -0.2rem -0.2rem 0.5rem #e9eaec;
 }
 
 * {
@@ -14,23 +24,38 @@
 /* GENERAL STYLING */
 
 body {
-  background: #141414ee;
-  color: #ffffff;
+  background: var(--clr-dark);
+  color: var(--clr-light);
   font-family: var(--ff-primary);
+  padding-top: 3rem;
 }
 
-.movie-app > .row {
-  overflow-x: auto;
-  flex-wrap: nowrap;
+
+@media (max-width: 600px) {
+  .movie-app>.row.row-overflow {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
 }
 
 /* NAVBAR STYLING */
+
+#navbar-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--clr-accent);
+  color: var(--clr-dark);
+}
+
+
 
 @media (max-width: 992px) {
   #mobile-navbar-show {
     display: flex;
   }
-  
+
   #desktop-navbar-show {
     display: none;
   }
@@ -57,7 +82,7 @@ body {
   transition: width 0.4s ease-in-out;
 }
 
-.form-control:FOCUS {
+.form-control:focus {
   width: 100%;
 }
 
@@ -70,20 +95,15 @@ body {
 /* MOVIE LIST STYLING */
 .header-sections {
   font-family: var(--ff-secondary);
+  color: var(--clr-accent);
 }
 
 .movie-poster {
   width: 10rem;
-  box-shadow: 
-  0.5rem 0.5rem  rgba(255, 255, 255, 0.205),
-  -0.2rem -0.2rem 0.5rem  rgba(255, 255, 255, 0.205);
 }
 
 .movie-poster-text {
   width: 10rem;
-  box-shadow: 
-  0.5rem 0.5rem  rgba(255, 255, 255, 0.205),
-  -0.2rem -0.2rem 0.5rem  rgba(255, 255, 255, 0.205);
   padding: 1rem;
   height: 100%;
   font-size: 19px;
@@ -92,14 +112,40 @@ body {
   text-align: justify;
 }
 
+.details-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.details-btn {
+  background-color: var(--clr-med);
+  padding: 0.1rem 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  margin: 0.5rem 0.5rem 1rem;
+}
+
+.details-btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition-duration: 600ms;
+}
+
+.movielist-align {
+  margin: 0 2%;
+}
+
 @media (max-width: 600px) {
   .row::-webkit-scrollbar {
     display: none;
   }
-  
+
   .row {
     -ms-overflow-style: none;
-    scrollbar-width: none;  
+    scrollbar-width: none;
   }
 }
 
@@ -109,6 +155,9 @@ body {
 .image-container {
   position: relative;
   transition: transform 0.2s;
+  height: 14rem;
+  overflow-x: hidden;
+  box-shadow: var(--bs)
 }
 
 .image-container:hover {
@@ -130,4 +179,70 @@ body {
   font-size: 20px;
   padding: 20px;
   text-align: center;
+}
+
+/* DETAILS STYLING */
+
+.movie-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.movie-details-heading {
+  width: 100%;
+}
+
+.movie-details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  background-image: url("./images/empty-cinema.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(238, 29, 29, 0.349);
+  width: 50%;
+  border-radius: 10px;
+  padding-bottom: 1rem;
+}
+
+.movie-details::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.363);
+  border-radius: 10px;
+}
+
+.movie-info {
+  position: relative;
+  padding: 0.2rem 20%;
+  width: 100%;
+  color: var(--clr-light);
+}
+
+.movie-details h2 {
+  position: relative;
+  padding: 0.5rem 20%;
+}
+
+.details-image-container {
+  position: relative;
+  height: auto;
+  width: auto;
+  overflow-x: hidden;
+  box-shadow: var(--bs-dark);
+}
+
+.movie-poster-text-details {
+  display: none;
 }
