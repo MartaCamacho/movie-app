@@ -1,11 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import RemoveFavourites from './RemoveFavourites';
 
 const MovieList = (props) =>{
     const FavouriteComponent = props.favouriteComponent;
 
     function redirectToSection() {
         window.location.href = "#details";
+      }
+
+      const brokenHeart = () => {
+          console.log(props.favourite, 'las props')
+          if (FavouriteComponent !== RemoveFavourites) {
+              return <i class="fas fa-heart"></i>
+          } else {
+              return <i class="fas fa-heart-broken"></i>
+          }
       }
 
     return (
@@ -17,9 +27,13 @@ const MovieList = (props) =>{
                         <div onClick={() => props.handleFavouritesClick(movie)} className="overlay d-flex align-items-center justify-content-center">
                             <FavouriteComponent />
                         </div>
+                        
                     </div>
+                    <div className="buttons-conainer">
+                    <button onClick={() => props.handleFavouritesClick(movie)}  className="details-btn mobile-favo-button">{brokenHeart()}</button>
                     <div className="details-btn-container" onClick={() => redirectToSection()}>
                         <Link to={`/${movie.imdbID}#details`}><button className="details-btn">Details</button></Link>
+                    </div>
                     </div>
                 </div>
             ))}

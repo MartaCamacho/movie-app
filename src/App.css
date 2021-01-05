@@ -67,6 +67,7 @@ body {
 @media (min-width: 992px) {
   #desktop-navbar-show {
     display: flex;
+    justify-content: flex-end;
   }
 
   #mobile-navbar-show {
@@ -192,6 +193,10 @@ body {
   margin: 0 2%;
 }
 
+.mobile-favo-button {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .row::-webkit-scrollbar {
     display: none;
@@ -200,6 +205,18 @@ body {
   .row {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .buttons-conainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.7rem;
+  }
+
+  .mobile-favo-button {
+    display: inline-block;
+    
+    color: red;
   }
 }
 
