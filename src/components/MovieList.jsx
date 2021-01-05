@@ -10,7 +10,6 @@ const MovieList = (props) =>{
       }
 
       const brokenHeart = () => {
-          console.log(props.favourite, 'las props')
           if (FavouriteComponent !== RemoveFavourites) {
               return <i class="fas fa-heart"></i>
           } else {
