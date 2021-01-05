@@ -28,7 +28,7 @@ const MovieDetails = (props) => {
             </div>
             <div className="movie-details">
             <div className="details-image-container d-flex justify-content-center m-3" >
-            {movie.Poster !== "N/A" ? <img className="movie-poster" src={movie.Poster} alt="movie"></img> : <p className="movie-poster-text">{movie.Title}</p>} 
+            {movie.Poster !== "N/A" ? <img className="movie-poster" src={movie.Poster} alt="movie"></img> : <p className="movie-poster-text-details">{movie.Title}</p>} 
             </div>
             <h2>Title: {movie.Title}</h2> 
             <p className="movie-info">Year: {movie.Year}</p>
