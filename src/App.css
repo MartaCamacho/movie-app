@@ -82,10 +82,14 @@ body {
   width: 50px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  display: flex;
+  justify-content: right;
 }
 
 .form-control:focus {
   width: 100%;
+  display: flex;
+  justify-content: right;
 }
 
 .search-container {
@@ -93,6 +97,7 @@ body {
   display: flex;
   justify-content: right;
 }
+
 
 /* INTRODUCTION STYLING */
 
@@ -313,7 +318,7 @@ body {
 	text-align: center;
   padding: 2.5em 0;
   position: absolute;
-  bottom: -1;
+  bottom: -0.1;
   width: 100%;
 }
 
