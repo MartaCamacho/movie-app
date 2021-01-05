@@ -31,12 +31,28 @@ const App = () => {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
+  useEffect(() => {
+		const movieFavourites = JSON.parse(
+			localStorage.getItem('react-movie-app-favourites')
+    );
+    console.log(movieFavourites, 'los favos')
+    if (movieFavourites) {
+			setFavourites(movieFavourites);
+		}
+  }, []);
+  
+  const saveToLocalStorage = (items) => {
+		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
+	};
+
   const addFavouriteMovie = (movie) => {
         let movieExist = favourites.indexOf(movie)
         const newFavouriteList = [...favourites, movie]
         if(movieExist === -1){
-        return setFavourites(newFavouriteList)
+        setFavourites(newFavouriteList);
+        saveToLocalStorage(newFavouriteList);
         }
+        
   };
 
   const removeFavouriteMovie = (movie) => {
@@ -44,6 +60,7 @@ const App = () => {
       (favourite) => favourite.imdbID !== movie.imdbID 
     );
     setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList)
   }
 
 
