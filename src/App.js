@@ -35,7 +35,6 @@ const App = () => {
 		const movieFavourites = JSON.parse(
 			localStorage.getItem('react-movie-app-favourites')
     );
-    console.log(movieFavourites, 'los favos')
     if (movieFavourites) {
 			setFavourites(movieFavourites);
 		}
