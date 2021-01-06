@@ -70,7 +70,7 @@ const App = () => {
     <section className="introduction">
     <div className="introduction-text">
     <h1>Movie finder, <br /> your movie app</h1>
-    <h2>Search you movies, save them and see their information, all in one page!</h2>
+    <h2>Search your movies, save them and see their information, all in one page!</h2>
     </div>
     </section>
     <div className="container-fluid movie-app">
