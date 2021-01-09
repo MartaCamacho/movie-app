@@ -5,8 +5,8 @@ import RemoveFavourites from './RemoveFavourites';
 const MovieList = (props) =>{
     const FavouriteComponent = props.favouriteComponent;
 
-    function redirectToSection() {
-        window.location.href = "#details";
+    async function redirectToSection() {
+         window.location.href = await "#details";
       }
 
       const brokenHeart = () => {
